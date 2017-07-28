@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Project 3 Results</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css" />
+    <link rel="stylesheet" type="text/css" href="/static/result.css" />
+  </head>
+  <body>
+    <div id = "result_container">
+      <div id ="header">
+        <h1>Intro to Big Data - Project 3 GUI</h1>
+      </div>
+      <div id = "result_content">
+        <div id = "result_title"><h1>Results From Task {{q}}</h1></div>
+
+        <button id="result_return" onclick="return_home()"><h1>Run Another Task</h1></button>
+
+        <div id ="result_frame">
+          {% if q == 0 %}
+          <img id = "result_figure" src="/static/results_error.jpg" />
+          {% else %}
+          <img id = "result_figure" src={{figName}} />
+          {% endif %}
+        </div>
+      </div>
+      <div id = "footer">
+        UMKC - SP2017 - GO ROOS!
+      </div>
+    </div>
+  </body>
+</html>
+
+<script  type="text/javascript">
+  function return_home(){
+    home = "http://localhost:5555/"
+    window.location.assign(home);
+  }
+</script>

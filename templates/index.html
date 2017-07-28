@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Project 3 GUI</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css" />
+    <link rel="stylesheet" type="text/css" href="/static/spinner.css" />
+  </head>
+  <body>
+    <div id = "index_container">
+      <div id ="header">
+        <h1>Intro to Big Data - Project 3 GUI</h1>
+      </div>
+      <div id = "index_content">
+        <h1>Welcome to Team 2's GUI! Choose A Task For Spark!</h1>
+          <button id="index_b1" onclick="query(1)">Run Task 1</button>
+          <button id="index_b2" onclick="query(2)">Run Task 2</button>
+          <button id="index_b3" onclick="query(3)">Run Task 3</button>
+        <div id="spinner"></div>
+      </div>
+      <div id = "footer">
+        UMKC - SP2017 - GO ROOS!
+      </div>
+    </div>
+  </body>
+</html>
+
+
+
+
+<script  type="text/javascript">
+  function query(task){
+
+    if (task == 1){
+      hide_b1()
+    } else if(task ==2 ){
+      hide_b2()
+    } else if(task == 3){
+      hide_b3()
+    } else{
+      alert("ERROR - NOT VALID TASK")
+    }
+    show_spinner()
+    //Tell browser to redirect to /result/<q>, where q is a value of 1, 2, or 3.
+    //For example, if the first button is pressed, it would go to /result/1
+    result = "http://localhost:5555/result/"+task;
+    window.location.assign(result);
+    //When this happens, the browser requests the url from the flask server.
+    //flask server will undersand request with @app.route('/result/<int:q>')
+    //and run the associated function, result(q). When result(q) is complete,
+    //flask will dispaly the result.html page with figure
+  }
+
+  //Use visibility property to show/hide elements
+  function show_spinner(){
+    var progress = document.getElementById('spinner');
+    progress.style.visibility = "visible";
+  }
+
+  function hide_b1(){
+    var b1 = document.getElementById('index_b1');
+    var b2 = document.getElementById('index_b2');
+    var b3 = document.getElementById('index_b3');
+
+    b1.disabled = true;
+    b1.style.opacity = "0.2";
+    b1.style.background = "#66CCFF";
+    b1.style.color = "white";
+
+    b2.disabled = true;
+    b2.style.background = "white";
+    b2.style.color = "white";
+    b2.style.opacity = "0.2";
+
+    b3.disabled = true;
+    b3.style.background = "white";
+    b3.style.color = "white";
+    b3.style.opacity = "0.2";
+  }
+  function hide_b2(){
+    var b1 = document.getElementById('index_b1');
+    var b2 = document.getElementById('index_b2');
+    var b3 = document.getElementById('index_b3');
+
+    b2.disabled = true;
+    b2.style.opacity = "0.2";
+    b2.style.background = "#66CCFF";
+    b2.style.color = "white";
+
+    b1.disabled = true;
+    b1.style.background = "white";
+    b1.style.color = "white";
+    b1.style.opacity = "0.2";
+
+    b3.disabled = true;
+    b3.style.background = "white";
+    b3.style.color = "white";
+    b3.style.opacity = "0.2";
+  }
+  function hide_b3(){
+    var b1 = document.getElementById('index_b1');
+    var b2 = document.getElementById('index_b2');
+    var b3 = document.getElementById('index_b3');
+
+    b3.disabled = true;
+    b3.style.opacity = "0.2";
+    b3.style.background = "#66CCFF";
+    b3.style.color = "white";
+
+    b2.disabled = true;
+    b2.style.background = "white";
+    b2.style.color = "white";
+    b2.style.opacity = "0.2";
+
+    b1.disabled = true;
+    b1.style.background = "white";
+    b1.style.color = "white";
+    b1.style.opacity = "0.2";
+  }
+</script>

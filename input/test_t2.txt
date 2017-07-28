@@ -1,0 +1,12 @@
+id,ht,rt_ht,rt_rt_cnt
+,,,
+,,,
+,,,
+10,,,20
+10,,,30
+20,apple,apple,40
+20,apple,apple,50
+40,orange,orange,60
+,peach,,
+,peach,,
+,melon,,
